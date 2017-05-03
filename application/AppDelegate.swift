@@ -81,7 +81,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ImageCache {
         NotificationCenter.default.post(name: OAuth2TokenRepositoryDidUpdateTokenName, object: nil, userInfo: nil)
     }
     
+//    func Log(message: String = "", _ path: String = #file, _ function: String = #function) {
+//        let file = path.components(separatedBy: "/").last!.components(separatedBy: ".").first! // Sorry
+//        NSLog("\(file).\(function): \(message)")
+//    }
+    
+    static func DLog(_ message: String = "", file: String = #file, function: String = #function, line: Int = #line) {
+        let filename = file.components(separatedBy: "/").last!.components(separatedBy: ".").first!
+        print("ctl \(filename) : \(line) -> \(function)  - \(message)")
+    }
+    
     func applicationDidFinishLaunching(_ application: UIApplication) {
+//        Log()
+        AppDelegate.DLog()
         self.reloadSession()
 //        deleteAllThumbnails()
 //        deleteAllCaches()

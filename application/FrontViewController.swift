@@ -328,6 +328,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     }
 
     override func viewDidLoad() {
+        AppDelegate.DLog()
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.openSubreddit(notification:)), name: SearchControllerDidOpenSubredditName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.searchSubreddit(notification:)), name: SearchControllerDidSearchSubredditName, object: nil)
@@ -363,7 +364,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         tableView.addSubview(refresh)
         
 //        cellar = SubredditCellar(subreddit: "movies", width: self.view.frame.size.width, fontSize: 18)
-        cellar = SubredditCellar(subreddit: "test", width: self.view.frame.size.width, fontSize: 18)
+        cellar = SubredditCellar(subreddit: "", width: self.view.frame.size.width, fontSize: 18)
         self.tableView.reloadData()
         cellar.load(atTheBeginning: true)
         

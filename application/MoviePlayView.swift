@@ -10,7 +10,7 @@ import Foundation
 
 import AVKit
 import AVFoundation
-import YouTubeGetVideoInfoAPIParser
+//import YouTubeGetVideoInfoAPIParser
 
 let MoviePlayViewUpdateTime = Notification.Name(rawValue: "MoviePlayViewUpdateTime")
 let MoviePlayViewDidChangeStatus = Notification.Name(rawValue: "MoviePlayViewDidChangeStatus")

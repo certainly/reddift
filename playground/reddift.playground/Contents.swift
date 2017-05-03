@@ -79,7 +79,7 @@ func getAccountInfo(from json: [String:String]) -> (String, String, String, Stri
 
 func getSubreddits(with session: Session) {
     do {
-        try session.getSubreddit(.new, paginator: nil, completion: { (result) in
+        try session.getSubreddit(.popular, paginator: nil, completion: { (result) in
             switch result {
             case .failure(let error):
                 print(error)
@@ -113,20 +113,21 @@ if let (username, password, clientID, secret) = loadAccount() {
                 print(error)
             case .success(let token):
                 let session = Session(token: token)
-                getProfile(with: session)
-                getSubreddits(with: session)
-                getLinksBy(with: session)
-                getReleated(with: session)
-                searchContents(with: session)
-                searchSubreddits(with: session)
+//                getProfile(with: session)
+//                getSubreddits(with: session)
+//                getLinksBy(with: session)
+//                getReleated(with: session)
+//                searchContents(with: session)
+//                searchSubreddits(with: session)
             }
         }))
     } catch { print(error) }
 }
 
-let anonymouseSession = Session()
-getSubreddits(with: anonymouseSession)
-getLinksBy(with: anonymouseSession)
+//print("begin ...")
+//let anonymouseSession = Session()
+////getSubreddits(with: anonymouseSession)
+//getLinksBy(with: anonymouseSession)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 

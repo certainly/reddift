@@ -221,6 +221,10 @@ extension Session {
      */
     @discardableResult
     public func getSubreddit(_ subredditWhere: SubredditsWhere, paginator: Paginator?, completion: @escaping (Result<Listing>) -> Void) throws -> URLSessionDataTask {
+        print("ctl: getSubreddit: \(token) over34")
+//        for symbol: String in Thread.callStackSymbols {
+//            print(symbol)
+//        }
         let parameter = paginator?.dictionaryByAdding(parameters: [:])
         guard let request = URLRequest.requestForOAuth(with: baseURL, path:subredditWhere.path, parameter:parameter, method:"GET", token:token)
             else { throw ReddiftError.canNotCreateURLRequest as NSError }

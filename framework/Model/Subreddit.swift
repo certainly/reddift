@@ -426,6 +426,9 @@ public struct Subreddit: SubredditURLPath, Thing, Created {
     public let quarantine: Bool
     
     public var path: String {
+        if displayName.characters.count == 0{
+            return ""
+        }
         return "/r/\(displayName)"
     }
     
