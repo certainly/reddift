@@ -494,9 +494,11 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
             // aa
             let cell = MediaLinkCell(numberOfThumbnails: container.thumbnails.count)
             cell.container = container
+            cell.titleTextView.delegate = self
             return cell
         case (let container, let cell as LinkCell):
             cell.container = container
+            cell.titleTextView.delegate = self
             return cell
         default:
             return UITableViewCell(style: .default, reuseIdentifier: "Default")
