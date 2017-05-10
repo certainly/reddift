@@ -32,7 +32,7 @@ class ThumbnailLinkCell: LinkCell, ImageDownloadable, ImageViewAnimator {
     
     override class func estimateTitleSize(attributedString: NSAttributedString, withBountWidth: CGFloat, margin: UIEdgeInsets) -> CGSize {
         let constrainedWidth = ThumbnailLinkCell.textAreaWidth(withBountWidth)
-        return UZTextView.size(for: attributedString, withBoundWidth: constrainedWidth, margin: UIEdgeInsets.zero)
+        return UZTextView.size(of: attributedString, restrictedWithin: constrainedWidth, inset: UIEdgeInsets.zero)
     }
     
     override class func estimateHeight(titleHeight: CGFloat) -> CGFloat {

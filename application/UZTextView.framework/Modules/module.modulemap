@@ -1,0 +1,10 @@
+framework module UZTextView {
+  umbrella header "UZTextView.h"
+
+  export *
+  module * { export * }
+}
+
+module UZTextView.Swift {
+    header "UZTextView-Swift.h"
+}

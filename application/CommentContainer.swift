@@ -30,7 +30,7 @@ private func prepareHTML(html: String, constrainedBy width: CGFloat, fontSize: C
                 let font = UIFont(name: "Mona", size: fontSize)!
                 let output = NSMutableAttributedString(string: attr.string)
                 output.addAttribute(NSFontAttributeName, value: font, range: attr.string.fullRange)
-                let bodySize = UZTextView.size(for: output, withBoundWidth: CGFloat.greatestFiniteMagnitude, margin: UIEdgeInsets.zero)
+                let bodySize = UZTextView.size(of: output, restrictedWithin: CGFloat.greatestFiniteMagnitude, inset: UIEdgeInsets.zero)
                 print("--------------------------------")
                 print("boundWidth=\(width)")
                 print("bodySize.width=\(bodySize.width)")
@@ -45,7 +45,7 @@ private func prepareHTML(html: String, constrainedBy width: CGFloat, fontSize: C
                 return (output, bodyHeight, isAA, AAScale)
             } else {
                 let body = attr.reconstruct(with: UIFont.systemFont(ofSize: fontSize), color: UIColor.black, linkColor: UIColor.blue)
-                let bodySize = UZTextView.size(for: body, withBoundWidth: width, margin: UIEdgeInsets.zero)
+                let bodySize = UZTextView.size(of: body, restrictedWithin: width, inset: UIEdgeInsets.zero)
                 let bodyHeight = bodySize.height
                 return (body, bodyHeight, false, 1)
             }

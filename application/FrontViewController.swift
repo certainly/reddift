@@ -8,8 +8,9 @@
 
 import reddift
 import UIKit
+import UZTextView
 
-class FrontViewController: UITableViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator {
+class FrontViewController: UITableViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator, UZTextViewDelegate {
     @IBOutlet var titleTextField: UITextField?
     var searchController = SearchController(style: .plain)
     var cellar: LinkContainerCellar = LinkContainerCellar()
@@ -372,6 +373,19 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.keyboardWillChangeFrame(notification:)), name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.keyboardWillChangeFrame(notification:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func textView(_ textView: UZTextView, didClickLinkAttribute attribute: Any) {}
+    func selectingStringBegun(_ textView: UZTextView) {}
+    func selectingStringEnded(_ textView: UZTextView) {}
+    
+    func textView(_ textView: UZTextView, didLongTapLinkAttribute attribute: Any) {
+        if let attribute = attribute as? String {
+            if UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: attribute) {
+                let ref: UIReferenceLibraryViewController = UIReferenceLibraryViewController(term: attribute)
+                self.present(ref, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - UIViewControllerPreviewingDelegate

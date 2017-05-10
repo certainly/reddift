@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UZTextView
 
 let LinkCellDidTapActionNotification = Notification.Name(rawValue: "LinkCellDidTapActionNotification")
 let LinkCellDidTapCommentNotification = Notification.Name(rawValue: "LinkCellDidTapCommentNotification")
@@ -28,7 +29,7 @@ class LinkCell: UITableViewCell {
     
     class func estimateTitleSize(attributedString: NSAttributedString, withBountWidth: CGFloat, margin: UIEdgeInsets) -> CGSize {
         let width = withBountWidth - titleLeftMargin - titleRightMargin
-        return UZTextView.size(for: attributedString, withBoundWidth: width, margin: UIEdgeInsets.zero)
+        return UZTextView.size(of: attributedString, restrictedWithin: width, inset: UIEdgeInsets.zero)
     }
     
     class func estimateHeight(titleHeight: CGFloat) -> CGFloat {
@@ -161,13 +162,13 @@ class LinkCell: UITableViewCell {
         selectionStyle = .none
         layoutMargins = UIEdgeInsets.zero
         separatorInset = UIEdgeInsets.zero
-        titleTextView.isUserInteractionEnabled = false
+        titleTextView.isUserInteractionEnabled = true
         titleTextView.backgroundColor = UIColor.clear
         
         self.contentView.addSubview(titleTextView)
         self.contentView.addSubview(contentInfoView)
         self.contentView.addSubview(contentToolbar)
-        self.contentView.addSubview(titleTextView)
+//        self.contentView.addSubview(titleTextView)
     }
     
     func setupConstraints() {

@@ -8,6 +8,7 @@
 
 import reddift
 import UIKit
+import UZTextView
 
 class CommentViewController: UITableViewController, UIViewControllerPreviewingDelegate, UZTextViewDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator {
     var link: Link?
@@ -350,25 +351,38 @@ class CommentViewController: UITableViewController, UIViewControllerPreviewingDe
 }
 
 extension CommentViewController {
-    func textView(_ textView: UZTextView, didLongTapLinkAttribute value: Any?) {
+    func textView(_ textView: UZTextView, didLongTapLinkAttribute value: Any) {
+        if let attribute = value as? String {
+            if UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: attribute) {
+                let ref: UIReferenceLibraryViewController = UIReferenceLibraryViewController(term: attribute)
+                self.present(ref, animated: true, completion: nil)
+            }
+        }
         if let dict = value as? [String: Any], let url = dict[NSLinkAttributeName] as? URL {
             print(url)
         }
     }
     
-    func textView(_ textView: UZTextView, didClickLinkAttribute value: Any?) {
+    func textView(_ textView: UZTextView, didClickLinkAttribute value: Any) {
         if let dict = value as? [String: Any], let url = dict[NSLinkAttributeName] as? URL {
             print(url)
         }
     }
-    
-    @objc(selectionDidBeginTextView:) func selectionDidBegin(_ textView: UZTextView) {
+//    func textView(_ textView: UZTextView, didClickLinkAttribute attribute: Any) {}
+    func selectingStringBegun(_ textView: UZTextView) {
         tableView.isScrollEnabled = false
     }
-    
-    @objc(selectionDidEndTextView:) func selectionDidEnd(_ textView: UZTextView) {
+    func selectingStringEnded(_ textView: UZTextView) {
         tableView.isScrollEnabled = true
     }
+    
+//    @objc(selectionDidBeginTextView:) func selectionDidBegin(_ textView: UZTextView) {
+//        tableView.isScrollEnabled = false
+//    }
+//    
+//    @objc(selectionDidEndTextView:) func selectionDidEnd(_ textView: UZTextView) {
+//        tableView.isScrollEnabled = true
+//    }
     
     func didTapTextDoesNotIncludeLinkTextView(_ textView: UZTextView) {
     }

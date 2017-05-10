@@ -17,7 +17,10 @@ class CommentCell: BaseCommentCell, ImageViewAnimator {
     
     var thumbnailView = CommentThumbnailView(numberOfThumbnails: 0)
     
-    let textView = ReddiftTextView(frame: CGRect.zero)
+//    let textView = ReddiftTextView(frame: CGRect.zero)
+    let textView = UZTextView(frame: CGRect.zero)
+    
+    
     let toolbar = UIView(frame: CGRect.zero)
     let upVoteButton = UIButton(type: .custom)
     let downVoteButton = UIButton(type: .custom)
@@ -275,10 +278,10 @@ class CommentCell: BaseCommentCell, ImageViewAnimator {
     func urlAt(_ location: CGPoint, peekView: UIView) -> (URL, CGRect)? {
         let tappedLocation = peekView.convert(location, to: textView)
         if let attr = textView.attributes(at: tappedLocation) {
-            if let url = attr[NSLinkAttributeName] as? URL, let rect = attr[UZTextViewClickedRect] as? CGRect {
-                let tappedLocation = textView.convert(rect, to: peekView)
-                return (url, tappedLocation)
-            }
+//            if let url = attr[NSLinkAttributeName] as? URL, let rect = attr[UZTextViewClickedRect] as? CGRect {
+//                let tappedLocation = textView.convert(rect, to: peekView)
+//                return (url, tappedLocation)
+//            }
         }
         return nil
     }

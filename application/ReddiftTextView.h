@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <UZTextView/UZTextView.h>
+#import <UZTextView/UZTextView-Swift.h>
 
 @class ReddiftTextView;
 
-@protocol ReddiftTextViewDelegate <UZTextViewDelegate>
-@end
-
-@interface ReddiftTextView : UZTextView {
-	BOOL _isPushedUIMenuController;
-}
-@property (nonatomic, assign) id <ReddiftTextViewDelegate> UZDelegate;
-@end
+//@protocol ReddiftTextViewDelegate <UZTextViewDelegate>
+//@end
+//
+//@interface ReddiftTextView : UZTextView {
+//	BOOL _isPushedUIMenuController;
+//}
+//@property (nonatomic, assign) id <ReddiftTextViewDelegate> UZDelegate;
+//@end
