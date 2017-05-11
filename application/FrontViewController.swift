@@ -142,6 +142,13 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     
     func didTapThumbnailNotification(notification: Notification) {
         if let userInfo = notification.userInfo,
+            let tLink = userInfo["link"] as? Link,
+            let url = URL(string: tLink.url){
+                UIApplication.shared.open(url)
+            return
+        }
+        
+        if let userInfo = notification.userInfo,
             let _ = userInfo["link"] as? Link,
             let thumbnail = userInfo["thumbnail"] as? Thumbnail,
             let _ = userInfo["view"] as? UIImageView {

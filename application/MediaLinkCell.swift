@@ -134,7 +134,7 @@ class MediaLinkCell: LinkCell, ImageViewAnimator {
         self.contentView.addSubview(contentInfoView)
         self.contentView.addSubview(contentToolbar)
         titleTextView.backgroundColor = UIColor.clear
-        titleTextView.isUserInteractionEnabled = false
+        titleTextView.isUserInteractionEnabled = true
         
         if let thumbnailView = self.thumbnailView {
             self.contentView.addSubview(thumbnailView)

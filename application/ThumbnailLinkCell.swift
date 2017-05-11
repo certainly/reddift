@@ -178,7 +178,7 @@ class ThumbnailLinkCell: LinkCell, ImageDownloadable, ImageViewAnimator {
         separatorInset = UIEdgeInsets.zero
         thumbnailImageView.clipsToBounds = true
         thumbnailImageView.contentMode = .scaleAspectFill
-        titleTextView.isUserInteractionEnabled = false
+        titleTextView.isUserInteractionEnabled = true
         titleTextView.backgroundColor = UIColor.clear
         titleAndThumbnailBaseView.backgroundColor = UIColor.clear
         
