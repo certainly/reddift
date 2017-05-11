@@ -133,10 +133,11 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     
     func didTapTitleNotification(notification: Notification) {
         if let userInfo = notification.userInfo, let link = userInfo["link"] as? Link, let url = URL(string: link.url) {
-            let controller = WebViewController(nibName: nil, bundle: nil)
-            controller.url = url
-            let nav = UINavigationController(rootViewController: controller)
-            self.present(nav, animated: true, completion: nil)
+              UIApplication.shared.open(url)
+//            let controller = WebViewController(nibName: nil, bundle: nil)
+//            controller.url = url
+//            let nav = UINavigationController(rootViewController: controller)
+//            self.present(nav, animated: true, completion: nil)
         }
     }
     

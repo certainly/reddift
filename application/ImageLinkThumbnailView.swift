@@ -76,6 +76,7 @@ class ImageLinkThumbnailView: UIView, ImageDownloadable {
     // MARK: - class method
     
     static func estimateHeight(numberOfThumbnails: Int) -> CGFloat {
+       return 0//ctl trickey
         if numberOfThumbnails == 0 {
             return 0
         } else if numberOfThumbnails <= 3 {
@@ -120,7 +121,7 @@ class ImageLinkThumbnailView: UIView, ImageDownloadable {
             
             iv.translatesAutoresizingMaskIntoConstraints = false
             ac.translatesAutoresizingMaskIntoConstraints = false
-            icon.translatesAutoresizingMaskIntoConstraints = false
+//            icon.translatesAutoresizingMaskIntoConstraints = false
             
             imageViews.append(iv)
             activityIndicators.append(ac)
@@ -129,11 +130,11 @@ class ImageLinkThumbnailView: UIView, ImageDownloadable {
             iv.clipsToBounds = true
             iv.image = UIImage(named: "sample")
             iv.contentMode = .scaleAspectFill
-            icon.image = UIImage(named: "playButton")
+//            icon.image = UIImage(named: "playButton")
             
             self.addSubview(iv)
             self.addSubview(ac)
-            self.addSubview(icon)
+//            self.addSubview(icon)
             
             do {
                 let centerx = NSLayoutConstraint(item: iv, attribute: .centerX, relatedBy: .equal, toItem: ac, attribute: .centerX, multiplier: 1, constant: 0)
@@ -143,14 +144,14 @@ class ImageLinkThumbnailView: UIView, ImageDownloadable {
                 ac.startAnimating()
             }
             do {
-                let widthConstraint = NSLayoutConstraint(item: icon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ImageLinkThumbnailView.playButtonIconWidth)
-                icon.addConstraint(widthConstraint)
-                let heightConstraint = NSLayoutConstraint(item: icon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ImageLinkThumbnailView.playButtonIconHeight)
-                icon.addConstraint(heightConstraint)
-                let centerx = NSLayoutConstraint(item: iv, attribute: .centerX, relatedBy: .equal, toItem: icon, attribute: .centerX, multiplier: 1, constant: 0)
-                self.addConstraint(centerx)
-                let centery = NSLayoutConstraint(item: iv, attribute: .centerY, relatedBy: .equal, toItem: icon, attribute: .centerY, multiplier: 1, constant: 0)
-                self.addConstraint(centery)
+//                let widthConstraint = NSLayoutConstraint(item: icon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ImageLinkThumbnailView.playButtonIconWidth)
+//                icon.addConstraint(widthConstraint)
+//                let heightConstraint = NSLayoutConstraint(item: icon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: ImageLinkThumbnailView.playButtonIconHeight)
+//                icon.addConstraint(heightConstraint)
+//                let centerx = NSLayoutConstraint(item: iv, attribute: .centerX, relatedBy: .equal, toItem: icon, attribute: .centerX, multiplier: 1, constant: 0)
+//                self.addConstraint(centerx)
+//                let centery = NSLayoutConstraint(item: iv, attribute: .centerY, relatedBy: .equal, toItem: icon, attribute: .centerY, multiplier: 1, constant: 0)
+//                self.addConstraint(centery)
             }
         }
         
@@ -174,14 +175,14 @@ class ImageLinkThumbnailView: UIView, ImageDownloadable {
     init(numberOfThumbnails: Int) {
         self.numberOfThumbnails = numberOfThumbnails
         super.init(frame: CGRect.zero)
-        prepareSubviews()
+//        prepareSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(ImageLinkThumbnailView.didFinishDownloading(notification:)), name: ImageDownloadableDidFinishDownloadingName, object: nil)
     }
     
     required init?(coder: NSCoder) {
         self.numberOfThumbnails = 1
         super.init(coder: coder)
-        prepareSubviews()
+//        prepareSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(ImageLinkThumbnailView.didFinishDownloading(notification:)), name: ImageDownloadableDidFinishDownloadingName, object: nil)
     }
 
