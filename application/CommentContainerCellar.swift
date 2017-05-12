@@ -21,7 +21,7 @@ class CommentContainerCellar {
     var link: Link = Link(id: "")
     var loading = false
     var containers: [CommentContainable] = []
-    var sort: CommentSort = .controversial
+    var sort: CommentSort = .hot
     
     /// Shared session configuration
     var sessionConfiguration: URLSessionConfiguration {

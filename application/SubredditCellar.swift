@@ -120,6 +120,7 @@ class SubredditCellar: LinkContainerCellar {
         if loading { return }
         do {
             loading = true
+            if atTheBeginning { self.paginator = Paginator() }
             try UIApplication.appDelegate()?.session?.getList(paginator, subreddit: subreddit, sort: .hot, timeFilterWithin: .month, completion: { (result) -> Void in
                 switch result {
                 case .failure(let error):
