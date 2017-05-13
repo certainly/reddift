@@ -77,7 +77,7 @@ class SubredditCellar: LinkContainerCellar {
         /// Create and layout Content objects.
         let newLinks: [Link] = listing.children.flatMap({ $0 as? Link })
         let newContainers: [LinkContainable] = newLinks.flatMap({
-            LinkContainable.createContainer(with: $0, width: width)
+            LinkContainable.createContainer(with: $0, width: width, fontSize: fontSize)
         })
         
         let pre_count = containers.count

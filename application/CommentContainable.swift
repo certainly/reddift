@@ -28,9 +28,9 @@ class CommentContainable: ThingContainable, ImageDownloadable {
     func layout(with width: CGFloat, fontSize: CGFloat) {
     }
     
-    static func createContainer(with object: Thing, depth: Int, width: CGFloat, fontSize: CGFloat = 14) throws -> CommentContainable {
+    static func createContainer(with object: Thing, depth: Int, width: CGFloat, fontSize: CGFloat = 18) throws -> CommentContainable {
         if let comment = object as? Comment {
-            return CommentContainer(with: comment, depth: depth, width: width)
+            return CommentContainer(with: comment, depth: depth, width: width, fontSize: fontSize)
         } else if let more = object as? More {
             return MoreContainer(with: more, depth: depth)
         } else {
