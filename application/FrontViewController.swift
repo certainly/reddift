@@ -144,7 +144,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     func didTapThumbnailNotification(notification: Notification) {
         if let userInfo = notification.userInfo,
             let tLink = userInfo["link"] as? Link,
-            let url = URL(string: tLink.url){
+            let url = URL(string: "amrc://reddit.com\(tLink.permalink)"){
                 UIApplication.shared.open(url)
             return
         }
