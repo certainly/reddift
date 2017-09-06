@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zUy-Zq-7XP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zUy-Zq-7XP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tbX-sv-oME">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,12 +108,12 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="zEg-eS-nFg"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gUD-LW-WXo"/>
-                        <barButtonItem image="compose" style="plain" id="oBC-VJ-igJ">
+                        <barButtonItem enabled="NO" image="compose" style="plain" id="oBC-VJ-igJ">
                             <connections>
                                 <action selector="composeWithSender:" destination="348-pW-D4o" id="nZs-rH-S4U"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Tab" id="ZjV-nC-BU5">
+                        <barButtonItem enabled="NO" title="Tab" id="ZjV-nC-BU5">
                             <connections>
                                 <action selector="openTab:" destination="348-pW-D4o" id="fJl-a4-rhe"/>
                             </connections>
@@ -135,7 +135,7 @@
                                 <outlet property="delegate" destination="348-pW-D4o" id="1NP-Kc-jt6"/>
                             </connections>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" image="subredditList" id="B36-sk-sOZ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="subredditList" id="B36-sk-sOZ">
                             <connections>
                                 <segue destination="oQK-fe-sEY" kind="presentation" id="3UJ-3J-SKF"/>
                             </connections>
@@ -198,8 +198,8 @@
                 <navigationController toolbarHidden="NO" id="zUy-Zq-7XP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Dsm-Wu-mZB"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3i-cH-aKo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="N3i-cH-aKo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="c2B-eG-q4l">
@@ -219,8 +219,8 @@
             <objects>
                 <navigationController storyboardIdentifier="AccountListNavigationController" toolbarHidden="NO" id="Kr2-ce-ePv" sceneMemberID="viewController">
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WWf-y9-Mh5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WWf-y9-Mh5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="de2-Hw-QyJ">
@@ -239,8 +239,7 @@
         <scene sceneID="vWx-8a-EJ2">
             <objects>
                 <navigationController storyboardIdentifier="TabSelectViewController" navigationBarHidden="YES" toolbarHidden="NO" id="5cG-kI-yjm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vs-Wd-8GR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0vs-Wd-8GR">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iZu-Ky-bQr">
