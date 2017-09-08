@@ -9,6 +9,7 @@
 import reddift
 import UIKit
 import UZTextView
+import SafariServices
 
 class FrontViewController: UITableViewController, UIViewControllerPreviewingDelegate, UITextFieldDelegate, UIViewControllerTransitioningDelegate, ImageViewAnimator, UZTextViewDelegate {
     @IBOutlet var titleTextField: UITextField?
@@ -93,6 +94,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     }
     
     func didTapActionNotification(notification: Notification) {
+        if true { return }
         if let userInfo = notification.userInfo, let link = userInfo["link"] as? Link, let contents = userInfo["contents"] as? LinkContainable {
             let controller = UIAlertController(title: link.title, message: link.url, preferredStyle: .actionSheet)
             let shareAction = UIAlertAction(title: "Share", style: .default, handler: { (_) -> Void in
@@ -133,11 +135,12 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     
     func didTapTitleNotification(notification: Notification) {
         if let userInfo = notification.userInfo, let link = userInfo["link"] as? Link, let url = URL(string: "amrc://reddit.com\(link.permalink)") {
-              UIApplication.shared.open(url)
-//            let controller = WebViewController(nibName: nil, bundle: nil)
-//            controller.url = url
-//            let nav = UINavigationController(rootViewController: controller)
-//            self.present(nav, animated: true, completion: nil)
+//              UIApplication.shared.open(url)
+            let urlProxy = URL(string: "http://localhost:8080/proxy/?pxurl=http://reddit.com\(link.permalink)")
+            let controller = WebViewController(nibName: nil, bundle: nil)
+            controller.url = urlProxy
+            let nav = UINavigationController(rootViewController: controller)
+            self.present(nav, animated: true, completion: nil)
         }
     }
     
@@ -145,7 +148,17 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
         if let userInfo = notification.userInfo,
             let tLink = userInfo["link"] as? Link,
             let url = URL(string: "amrc://reddit.com\(tLink.permalink)"){
-                UIApplication.shared.open(url)
+//                UIApplication.shared.open(url)
+            
+            let urlProxy = URL(string: "http://104.194.77.164:8080/proxy/?pxurl=\(tLink.url)")
+            let svc = SFSafariViewController(url: urlProxy!)
+            present(svc, animated: true, completion: nil)
+            
+//            let controller = WebViewController(nibName: nil, bundle: nil)
+//            controller.url = urlProxy
+//            let nav = UINavigationController(rootViewController: controller)
+//            self.present(nav, animated: true, completion: nil)
+            
             return
         }
         
@@ -338,6 +351,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
 
     override func viewDidLoad() {
         AppDelegate.DLog()
+        print("view Did load ctl")
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.openSubreddit(notification:)), name: SearchControllerDidOpenSubredditName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FrontViewController.searchSubreddit(notification:)), name: SearchControllerDidSearchSubredditName, object: nil)
