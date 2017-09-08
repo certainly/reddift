@@ -136,11 +136,15 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
     func didTapTitleNotification(notification: Notification) {
         if let userInfo = notification.userInfo, let link = userInfo["link"] as? Link, let url = URL(string: "amrc://reddit.com\(link.permalink)") {
 //              UIApplication.shared.open(url)
-            let urlProxy = URL(string: "http://localhost:8080/proxy/?pxurl=http://reddit.com\(link.permalink)")
-            let controller = WebViewController(nibName: nil, bundle: nil)
-            controller.url = urlProxy
-            let nav = UINavigationController(rootViewController: controller)
-            self.present(nav, animated: true, completion: nil)
+//            let urlProxy = URL(string: "http://localhost:8080/proxy/?pxurl=http://reddit.com\(link.permalink)")
+//            let controller = WebViewController(nibName: nil, bundle: nil)
+//            controller.url = urlProxy
+//            let nav = UINavigationController(rootViewController: controller)
+//            self.present(nav, animated: true, completion: nil)
+            
+            let urlProxy = URL(string: "http://104.194.77.164:8080/proxy/?pxurl=\(link.url)")
+            let svc = SFSafariViewController(url: urlProxy!)
+            present(svc, animated: true, completion: nil)
         }
     }
     
