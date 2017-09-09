@@ -3,7 +3,7 @@
 # 基于reddift的reddit App
 增加功能点：
 
-点选直接取词翻译
+长按取词翻译
 
 
   * 原理：自定义textview控件拦截抬起事件
