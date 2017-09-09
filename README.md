@@ -10,7 +10,7 @@
   
   * [代码](https://github.com/certainly/UZTextView)
   
-  * [截图](https://imgur.com/ZUOogLV)
+  * [截图](http://i.imgur.com/eECxWm4.gifv)
 
 网页代理
 
