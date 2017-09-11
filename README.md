@@ -1,7 +1,8 @@
 
 
-# 基于reddift的reddit App
-增加功能点：
+# 基于reddift的reddit App 
+
+## 增加功能点：
 
 长按取词翻译  
 
