@@ -18,3 +18,5 @@
   
 
 
+## 截图  
+<img src="http://i.imgur.com/N2USvWz.gif" alt="Code Coverage">
