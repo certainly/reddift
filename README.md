@@ -8,7 +8,7 @@
 
 * 原理：自定义textview控件拦截抬起事件  
 * [代码](https://github.com/certainly/UZTextView)  
-* [截图](http://i.imgur.com/eECxWm4.gifv)
+
 
 
 网页代理 
