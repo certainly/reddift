@@ -142,7 +142,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
 //            let nav = UINavigationController(rootViewController: controller)
 //            self.present(nav, animated: true, completion: nil)
             
-            let urlProxy = URL(string: "http://104.194.77.164:8080/proxy/?pxurl=\(link.url)")
+            let urlProxy = URL(string: "http://104.194.77.164:8083/proxy/?pxurl=\(link.url)")
             let svc = SFSafariViewController(url: urlProxy!)
             present(svc, animated: true, completion: nil)
         }
@@ -154,7 +154,7 @@ class FrontViewController: UITableViewController, UIViewControllerPreviewingDele
             let url = URL(string: "amrc://reddit.com\(tLink.permalink)"){
 //                UIApplication.shared.open(url)
             
-            let urlProxy = URL(string: "http://104.194.77.164:8080/proxy/?pxurl=\(tLink.url)")
+            let urlProxy = URL(string: "http://104.194.77.164:8083/proxy/?pxurl=\(tLink.url)")
             let svc = SFSafariViewController(url: urlProxy!)
             present(svc, animated: true, completion: nil)
             
